@@ -16,14 +16,34 @@ namespace Assignment2._1
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseDefaultFiles();
+            //For error handling
+            if (env.IsEnvironment("Development"))
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                //add error page
+            }
 
+            //Must download useNodeModules to make 'yellow'
+            app.UseNodeModules();
+
+            //allow for app to use static files, routing and endpoints
             app.UseStaticFiles();
+            app.UseRouting();
+            app.UseEndpoints(cfg =>
+            {
+                cfg.MapControllerRoute("Default",
+                    "{controller}/{action}/{id?}",
+                    new { controller = "Home", action = "Index" });
+            });
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿
-var submit = document.getElementById("submitButton");
-
-submit.addEventListener("click", function () {
+$("#submitButton").click ( function () {
     //cacluate grade
-    var grade = (document.getElementById('assignment').value * .5) + (document.getElementById('groupProjects').value * .1) + (document.getElementById('quizzes').value * .1) + (document.getElementById('exams').value * .2) + (document.getElementById('intex').value * .1);
+    var grade = ($('#assignment').val() * .5) + ($('#groupProjects').val() * .1) + ($('#quizzes').val() * .1) + ($('#exams').val()* .2) + ($('#intex').val()* .1);
     //calculate letter grade
     var letter = 'A';
     if (grade >= 93) {

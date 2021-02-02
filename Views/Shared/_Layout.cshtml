@@ -1,0 +1,29 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <!-- links to css and images.-->
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <link rel="icon" href="~/img/hiking.jpg">
+</head>
+<body>
+    <header>@ViewBag.Title</header>
+
+    <menu>
+        <ul>
+            <li><a asp-controller ="Home" asp-action="Index">Home</a></li>
+            <li><a asp-controller ="Home" asp-action="CalculateGrade">Calculate Grade</a></li>
+        </ul>
+    </menu>
+
+    @RenderBody()
+
+    <footer>Bri Sperry: Section 1</footer>
+  
+    <script src="~/js/calcGrade.js"></script>
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+
+</body>
+</html>   
